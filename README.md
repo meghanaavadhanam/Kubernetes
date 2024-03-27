@@ -94,8 +94,12 @@ spec:
 
 Notes: A Pod is the smallest deployable unit in Kubernetes, consisting of one or more containers that share networking and storage resources.
 
-8. Run the pod:
+8. Create a pod
 
+9. Run the pod:
+```bash
+kubectl apply -f nginx-pod.yaml
+```
 - `kubectl get pods`: View all Pods in the cluster.
 - `kubectl describe pod <pod-name>`: Get detailed information about a specific Pod.
 - `kubectl logs <pod-name>`: View logs from a Pod's containers.
