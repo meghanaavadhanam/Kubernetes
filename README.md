@@ -28,7 +28,7 @@ In this mini project, the aim is to deploy an nginx deployment and pod on Kubern
 
 Notes: A deployment is an object that manages a set of identical pods.
 
-Creating a deployment with a 'Kubernetes Manifest' yaml file.
+3. Creating a deployment with a 'Kubernetes Manifest' yaml file.
 
 ```yaml
 apiVersion: apps/v1
@@ -52,23 +52,23 @@ spec:
         - containerPort: 80
 ```
 
-Apply the manifest using kubectl:
+4. Apply the manifest using kubectl:
 ```bash
 kubectl apply -f nginx.yaml
 ```
 
-After deployment is created, check the following (optional):
+5. After deployment is created, check the following (optional):
 ```bash
 kubectl get deployments
 kubectl describe deployment nginx-deployment
 ```
 
-Scale the Deployment up or down:
+6. Scale the Deployment up or down:
 ```bash
 kubectl scale deployment <deployment-name> --replicas=<replica-count>
 ```
 
-### Task 2 - Performing a Rolling Update on nginx deployment
+7. Perform a Rolling Update on nginx deployment image
 
 ```yaml
 apiVersion: apps/v1
@@ -94,7 +94,7 @@ spec:
 
 Notes: A Pod is the smallest deployable unit in Kubernetes, consisting of one or more containers that share networking and storage resources.
 
-Run the pod:
+8. Run the pod:
 
 - `kubectl get pods`: View all Pods in the cluster.
 - `kubectl describe pod <pod-name>`: Get detailed information about a specific Pod.
