@@ -7,7 +7,9 @@
 In this repo, I'm publishing 3 separate, local-level projects using Kubernetes.
 
 Project 1 - Deploying a "Deployment" on Kubernetes for an Nginx app and performing a rolling update on it to test the feature.
+
 Project 2 - Deploying a FASTAPI app written in Python to a Pod, building its image on Docker, forwarding its port to 8080:80 and deploying a Kubernetes Pod into a local cluster on minikube.
+
 Project 3 - Deploying a To-do list app with a preexisting Docker Image and forwarding its port from 3000 to 80, deploying a pod on to minikube.
 
 #### Project 1 : Nginx - Docker - Kubernetes
