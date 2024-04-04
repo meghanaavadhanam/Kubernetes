@@ -6,11 +6,15 @@
 
 In this repo, I'm publishing 3 separate, local-level projects using Kubernetes.
 
-Project 1 - Deploying a "Deployment" on Kubernetes for an Nginx app and performing a rolling update on it to test the feature.
+**Project 1**
+- Deploying a "Deployment" on Kubernetes for an Nginx app and performing a rolling update on it to test the feature.
 
-Project 2 - Deploying a FASTAPI app written in Python to a Pod, building its image on Docker, forwarding its port to 8080:80 and deploying a Kubernetes Pod into a local cluster on minikube.
+**Project 2**
+- Deploying a FASTAPI app written in Python to a Pod, building its image on Docker, forwarding its port to 8080:80, and deploying a Kubernetes Pod into a local cluster on minikube.
 
-Project 3 - Deploying a To-do list app with a preexisting Docker Image and forwarding its port from 3000 to 80, deploying a pod on to minikube.
+**Project 3**
+- Deploying a To-do list app with a preexisting Docker Image and forwarding its port from 3000 to 80, deploying a pod onto minikube.
+
 
 #### Project 1 : Nginx - Docker - Kubernetes
 I deploy an nginx deployment and pod on Kubernetes, using a yaml manifest file on Minikube. Nginx is a lightweight open-source web server that is widely used for sample pods, deployments, and ingresses. It serves as a reverse proxy and load balancer, making it very useful for Kubernetes applications.
@@ -100,4 +104,82 @@ spec:
         ports:
         - containerPort: 80
 ```
+
+------------------------------------------------------------
+
+**Project 2**
+- Deploying a FASTAPI app written in Python to a Pod, building its image on Docker, forwarding its port to 8080:80, and deploying a Kubernetes Pod into a local cluster on minikube.
+
+### Steps:
+
+1. Create Python virtual environment:
+   ```bash
+   python3 -m venv ./venv
+   ```
+
+2. Activate virtual environment
+   ```bash
+   source ./venv/bin/activate
+   ```
+4. Install fastapi
+   ```bash
+   pip install fastapi
+   ```
+5. Install uvicorn
+   ```bash
+   pip install uvicorn
+   ```
+6. pip freeze and add the packages to requirements.txt
+7. Create main.py file
+8. Run the app using uvicorn
+   ```bash
+   uvicorn main:app --reload
+   ```
+9. Create dockerfile
+10. Build docker file
+   ```bash
+   docker build -t k8s-fast-api .
+   ```
+11. Run the container locally to check and port-forward 8000:80
+```bash
+docker run -p 8000:80 k8s-fast-api
+```
+
+12. Create a new repo in dockerhub registry so kubernetes can access it
+13. Push image to dockerhub registry
+    ```bash
+    docker push megavadh/k8s-getting-started:tagname
+    ```
+
+14. Launch cluster on CIVO/Minikube
+    ```bash
+    minikube start
+    ```
+
+15. Check status
+    ```bash
+    minikube status
+    ```
+
+16. Create a kubernetes manifest deployment.yaml file
+
+17. Create a service.yaml file to maintain a port for incoming and outgoing traffic.
+
+18. Run the deployment and service 
+    ```bash
+    kubectl apply -f .
+    ```
+20. Get pods
+    ```bash
+    kubectl get pods -w
+    ```
+
+21. Port forwarding in Kubernetes allows you to access internal cluster resources from outside the cluster.
+     ```bash
+    kubectl port-forward pod-name 8080:80 
+    ```
+The app is now on kubernetes cluster! (P.s. to expose it to external traffic from public internet, use kubernetes ingress by setting up a DNS and input into yaml ingress file.
+
+
+------------------------------------------------------------
 
