@@ -1,10 +1,17 @@
-# Kubernetes Deployment Project
+# Kubernetes Projects
 
 ## Meghana Avadhanam
 
 ### Overview
 
-In this mini project, the aim is to deploy an nginx deployment and pod on Kubernetes, using Kubernetes manifest on Minikube. Nginx is a lightweight open-source web server that is widely used for sample pods, deployments, and ingresses. It serves as a reverse proxy and load balancer, making it very useful for Kubernetes applications.
+In this repo, I'm publishing 3 separate, local-level projects using Kubernetes.
+
+Project 1 - Deploying a "Deployment" on Kubernetes for an Nginx app and performing a rolling update on it to test the feature.
+Project 2 - Deploying a FASTAPI app written in Python to a Pod, building its image on Docker, forwarding its port to 8080:80 and deploying a Kubernetes Pod into a local cluster on minikube.
+Project 3 - Deploying a To-do list app with a preexisting Docker Image and forwarding its port from 3000 to 80, deploying a pod on to minikube.
+
+#### Project 1 : Nginx - Docker - Kubernetes
+I deploy an nginx deployment and pod on Kubernetes, using a yaml manifest file on Minikube. Nginx is a lightweight open-source web server that is widely used for sample pods, deployments, and ingresses. It serves as a reverse proxy and load balancer, making it very useful for Kubernetes applications.
 
 ### Prerequisites
 
@@ -92,15 +99,3 @@ spec:
         - containerPort: 80
 ```
 
-Notes: A Pod is the smallest deployable unit in Kubernetes, consisting of one or more containers that share networking and storage resources.
-
-8. Create a pod
-
-9. Run the pod:
-```bash
-kubectl apply -f nginx-pod.yaml
-```
-- `kubectl get pods`: View all Pods in the cluster.
-- `kubectl describe pod <pod-name>`: Get detailed information about a specific Pod.
-- `kubectl logs <pod-name>`: View logs from a Pod's containers.
-- `kubectl exec -it <pod-name> -- <command>`: Execute a command inside a running Pod.
