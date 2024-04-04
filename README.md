@@ -103,6 +103,11 @@ spec:
         image: nginx:1.19.6   # Updated image version
         ports:
         - containerPort: 80
+   strategy:
+       type: RollingUpdate
+       rollingUpdate:
+         maxUnavailable: 1 # This means that up to 1 pods can be unavailable during the update process.
+         maxSurge: 1 # This means that up to 3 more pods than the desired number can be created during the update process.
 ```
 
 ------------------------------------------------------------
